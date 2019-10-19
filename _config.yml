@@ -1,1 +1,9 @@
-theme: jekyll-theme-architect
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      theme: jekyll-theme-architect
+      author: "alkisg"
