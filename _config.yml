@@ -1,3 +1,4 @@
+theme: jekyll-theme-architect
 
 defaults:
   -
@@ -5,5 +6,4 @@ defaults:
       path: ""
       type: "pages"
     values:
-      theme: jekyll-theme-architect
       author: "alkisg"
