@@ -1,0 +1,18 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: GitHub
+      external_url: https://github.com/GSLabDev/project-documentation
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Products
+      folderitems:
+        - title: Mulesoft Docker Connector
+          url: /dc_landing_page.html
+        - title: Mulesoft Elasticsearch Connector
+          url: /es_landing_page.html

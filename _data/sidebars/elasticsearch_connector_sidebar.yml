@@ -1,0 +1,41 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: Elasticsearch Connector
+  product: Elasticsearch Connector
+  version: 1.0
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Helpful links
+    output: web
+    folderitems:
+    - title: Home
+      url: /es_landing_page.html
+      output: web
+
+    - title: Connector Guide
+      url: /es_user_guide.html
+      output: web
+
+    - title: Connector Release Notes
+      url: /es_release_notes.html
+      output: web
+
+    - title: Connector API Reference
+      url: /es_api_reference.html
+      output: web
+
+
