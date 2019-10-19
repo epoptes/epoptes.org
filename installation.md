@@ -1,3 +1,6 @@
+---
+---
+
 # Installation
 
 Epoptes consists of a server package called `epoptes` and a client package called `epoptes-client`. Install the server part on the PC where you'll be monitoring the clients from. If you want to use the GUI from a thin-client, install it on the LTSP server.
