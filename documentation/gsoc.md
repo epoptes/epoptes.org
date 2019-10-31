@@ -3,7 +3,7 @@ parent: Documentation
 ---
 
 # Google Summer of Code
-This is a blueprint for a possible GSoC or Outreachy project on [Epoptes](https://epoptes.github.io), which is a computer lab management and monitoring tool.
+This is a blueprint for a possible GSoC or Outreachy project on [Epoptes](https://epoptes.org), which is a computer lab management and monitoring tool.
 
 ## Project goals
 
