@@ -7,10 +7,22 @@ This is a blueprint for a possible GSoC or Outreachy project on [Epoptes](https:
 
 ## Project goals
 
+- Reimplement the network benchmark tool with python libraries, e.g. twisted.
+- Allow running the GUI remotely with an [OpenSSL client certificate](http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html).
 - Use a VNC library instead of relying on external programs like x11vnc and xvnc4viewer.
 - Investigate screen sharing on Wayland.
-- Reimplement the network benchmark tool with python libraries, e.g. twisted.
 - Reimplement epoptes-client in python instead of shell.
+
+### Network benchmark tool
+
+The current implementation of Epoptes network benchmark tool is externally calling iperf v2, which is rather unstable. Its backend should be rewritten using native python libraries, for example twisted.
+
+### Remote GUI
+
+The Epoptes daemon usually listens for connections on /run/epoptes/epoptes.socket, which can be accessed only by members of the epoptes group.
+Additionally listening on an OpenSSL socket should make it possible for clients to connect securely and authenticate using an [OpenSSL client certificate](http://www.dest-unreach.org/socat/doc/socat-openssltunnel.html).
+The client certificate could reside in the client /etc/epoptes/gui.pem, or, for LTSP where the disk is public, in ~/.config/epoptes/gui.pem. Then the gui.py would check for that file, and if present, it would use it to connect to the server.
+This architecture means that the file would be manually transferred to each client image or LTSP user.
 
 ### VNC library
 
@@ -20,10 +32,6 @@ On the other hand, there are some VNC libraries available in most distributions.
 ### Screen sharing on Wayland
 
 Some developers are trying to [implement screen sharing on Wayland](https://www.phoronix.com/scan.php?page=news_item&px=WebRTC-Wayland-Screen-Share) using modern technologies like WebRC/PipeWire. The current status should be evaluated, and if it appears to be mature, code could be added in Epoptes to support that.
-
-### Network benchmark tool
-
-The current implementation of Epoptes network benchmark tool is externally calling iperf v2, which is rather unstable. Its backend should be rewritten using native python libraries, for example twisted.
 
 ### Epoptes client in Python
 
