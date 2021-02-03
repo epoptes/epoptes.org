@@ -4,7 +4,7 @@ nav_order: 2
 
 # Installation
 
-Epoptes consists of a server package called `epoptes` and a client package called `epoptes-client`. Install the server part on the PC where you'll be monitoring the clients from. If you want to use the GUI from a thin-client, install it on the LTSP server.
+Epoptes consists of a server package called `epoptes` and a client package called `epoptes-client`.
 
 ## Server package installation
 
@@ -20,9 +20,7 @@ After the installation you need to add some users to the "epoptes" group (or use
 gpasswd -a username epoptes
 ```
 
-Users that are currently logged on need to logoff/logon for the group change to take effect (or use `newgrp`).
-
-## Client package installation for standalone clients
+## Client package installation
 
 Before installing the epoptes-client package, it's necessary to tell the clients how to contact the epoptes server PC. There are three different ways to do  that:
 
@@ -40,20 +38,3 @@ epoptes-client -c    # Fetches the OpenSSL certificate from the server
 ```
 
 Note that packages are not allowed to start programs inside a user's session, so you need to reboot the clients for the epoptes-client installation to take effect.
-
-## Client package installation for LTSP chroots
-
-For LTSP chroots, execute the following commands:
-
-```shell
-ltsp-chroot
-apt-get install --install-recommends epoptes-client
-epoptes-client -c    # Fetches the OpenSSL certificate from the server
-exit
-```
-
-If you're using NBD (all Ubuntu versions and Debian >=8), you also need to update the NBD image for the changes to take effect:
-
-```shell
-ltsp-update-image
-```
