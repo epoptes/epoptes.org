@@ -41,28 +41,26 @@ After that, they should be able to run Epoptes as usual, from the system menu.
 
 ## Locally
 
-In this solution, one LTSP client per computer lab is named "the epoptes PC". They are given specific hostnames, for example `a01` for `lab-a`, they run the epoptes service and GUI, and the other LTSP clients of that computer lab are instructed to connect there, instead of the LTSP server. To do all these, the following settings are needed in ltsp.conf:
+In this solution, one LTSP client per computer lab is named "the epoptes PC". They are given specific hostnames, for example `a00` for `lab-a`, they run the epoptes service and GUI, and the other LTSP clients of that computer lab are instructed to connect there, instead of the LTSP server. To do all these, the following settings are needed in ltsp.conf. Merge the [server] section shown below with the existing one, don't create a new one:
 
 ```shell
 [server]
 # Keep the epoptes private key in ltsp images
 OMIT_IMAGE_EXCLUDES="etc/epoptes/server.key"
 
-[clients]
-# Generic ltsp parameters for all labs...
-
 [lab-a]
-# Instruct lab-a clients to connect to a01.local
+# Instruct lab-a clients to connect to a00.local
 # The .local suffix is automatically added to hostnames by "avahi"
-POST_INIT_EPOPTES="sed 's/.*SERVER=.*/SERVER=a01.local/' /etc/default/epoptes-client"
+POST_INIT_EPOPTES="sed 's/.*SERVER=.*/SERVER=a00.local/' -i /etc/default/epoptes-client"
 
 [mac:address:of:lab-a-epoptes-pc]
-HOSTNAME=a01
+HOSTNAME=a00
 # In epoptes PCs, do start the epoptes service
 KEEP_SYSTEM_SERVICES="epoptes"
+IGNORE_EPOPTES=1
 
-[mac:address:of:lab-a-client02]
-HOSTNAME=a02
+[mac:address:of:lab-a-client01]
+HOSTNAME=a01
 # Use INCLUDE directives to map clients to computer labs
 INCLUDE=lab-a
 ```
