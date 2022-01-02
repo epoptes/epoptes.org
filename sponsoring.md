@@ -12,15 +12,14 @@ During 2011 - 2015 it was sponsored by [NSRF 2007 - 2013 Program](https://2007-2
 
 In 2009, as part of a project called [sch-scripts](https://sch-scripts.gitlab.io), Epoptes [received funding](https://old.ellak.gr/index658a.html?option=com_openwiki&Itemid=103&id=ellak:sch-scripts) from [GFOSS](https://gfoss.eu).
 
-
-# Donations
+## Donations
 
 If you would like to support Epoptes development, you can submit a donation at the following link:
 [https://paypal.me/epoptes](https://paypal.me/epoptes)
 
-Please include your IRC nickname in the Notes field, because donors get free support via chat/VNC in the [freenode IRC channel](http://ts.sch.gr/repo/irc).
+Please include your  nickname in the Notes field, because donors get free support via chat/VNC in the [chat room](https://ltsp.org/advanced/chat-room/).
 
-# Bounties
+## Bounties
 
 You may also offer a bounty for implementing a new feature that you'd like to see implemented in Epoptes. Just [file an issue](https://github.com/epoptes/epoptes/issues) and mention that you're interested in sponsoring its implementation.
 
