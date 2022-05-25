@@ -10,4 +10,4 @@ Search the following table of contents for the topic you're interested in.
 places to start.
 
 Documentation contributors are most welcome, please contact us in the [chat
-room](https://ltsp.org/advanced/chat-room/) for details.
+room](https://ltsp.org/guides/chat-room/) for details.
