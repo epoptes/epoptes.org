@@ -17,10 +17,10 @@ In 2009, as part of a project called [sch-scripts](https://sch-scripts.gitlab.io
 If you would like to support Epoptes development, you can submit a donation at the following link:
 [https://paypal.me/epoptes](https://paypal.me/epoptes)
 
-Please include your  nickname in the Notes field, because donors get free support via chat/VNC in the [chat room](https://ltsp.org/guides/chat-room/).
+Please include your nickname in the Notes field, because donors get free support via chat/VNC in the [chat room](https://ltsp.org/guides/chat-room/).
 
 ## Bounties
 
-You may also offer a bounty for implementing a new feature that you'd like to see implemented in Epoptes. Just [file an issue](https://github.com/epoptes/epoptes/issues) and mention that you're interested in sponsoring its implementation.
+You may also offer a bounty for a new feature that you'd like to see implemented in Epoptes. Just [file an issue](https://github.com/epoptes/epoptes/issues) and mention that you're interested in sponsoring its implementation.
 
 Thank you for supporting Epoptes development!
