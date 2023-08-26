@@ -4,9 +4,12 @@ parent: Documentation
 
 # Global groups
 
+> 💡 **Tip:**
+  If using LTSP, see also [ltsp.conf groups](ltsp-groups.md).
+
 Suppose that a school has 5 computer labs and 50 teachers. It would be tiresome
 if each teacher had to manually [create Epoptes groups](groups.md) for these
-labs. The following solution is provided in recent Epoptes versions:
+labs. The following solution is provided:
 
 1.  Login as the school "administrator" (it can be one of the teachers) and run
     Epoptes at least once so that the ~/.config/epoptes/groups.json file gets
@@ -29,5 +32,4 @@ clients, for example staff PCs, from everyone except the administrator. To do
 this, the administrator just needs to create a group named "X-Hidden" and to
 drag the clients he wants in it. The teachers won't be seeing those clients
 anymore, nor the "X-Hidden" group. Multiple hidden groups are also supported,
-as long as their names start with "X-Hidden". Thanks to Rolf-Werner Eilert for
-sponsoring this feature!
+as long as their names start with "X-Hidden".

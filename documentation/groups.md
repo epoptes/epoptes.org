@@ -4,6 +4,9 @@ parent: Documentation
 
 # Working with groups
 
+> 💡 **Tip:**
+  If using LTSP, see also [ltsp.conf groups](ltsp-groups.md).
+
 You can create and use groups in Epoptes for a number of reasons:
 
 - To organize and manage groups of workstations. For example, a school may have a single LTSP server serving 4 classrooms. Teachers using Epoptes would create 4 groups and drag 'n' drop clients from the Detected computers group to the respective classroom groups.

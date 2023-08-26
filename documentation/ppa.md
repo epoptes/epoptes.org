@@ -4,7 +4,7 @@ parent: Documentation
 
 # Personal Package Archives
 
-Epoptes packages are available in the stock repositories of many Linux distributions, such as Ubuntu, Debian, openSUSE etc. However, for Ubuntu, there are also two Personal Package Archives (PPAs) available:
+Epoptes packages are available in the stock repositories of many Linux distributions, such as Ubuntu, Debian, ArchLinux etc. However, for Ubuntu, there are also two Personal Package Archives (PPAs) available:
 
 - [Epoptes stable repository](https://launchpad.net/~epoptes/+archive/ubuntu/ppa): it contains the most recent stable epoptes releases for all supported Ubuntu versions.
 - [Epoptes proposed repository](https://launchpad.net/~epoptes/+archive/ubuntu/proposed): it contains prerelease epoptes packages for testing purposes.

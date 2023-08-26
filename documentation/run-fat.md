@@ -2,42 +2,38 @@
 parent: Documentation
 ---
 
-# Running from a fat client
+# Running from LTSP fat clients
 
-This page assumes that you already have a working LTSP installation, with the epoptes package installed in the LTSP server and epoptes-client in the image, as described in the [LTSP installation page](https://ltsp.org/docs/installation/).
+In recent Epoptes versions (>= 23.08), it's possible to run `epoptes` from any
+LTSP fat client, and seamlessly control all epoptes-clients in the same subnet.
+This is automatically accomplished using the following logic:
 
-Now suppose that your LTSP server is headless, and that it serves 3 computer labs. How would Epoptes operators in each lab run it in that case? Two solutions called "Remotely" and "Locally" are presented below. The following table compares them:
+- If epoptes-daemon isn't running locally, and this is an LTSP client, then
+  `ltsp remoteapps` is used to connect to the remote epoptes-daemon running on
+  the LTSP server, via SSH.
+- Client thumbnails, command execution etc all happen through the SSH channel.
+- But certain features that need additional performance, such as screen
+  broadcasting and monitoring, LAN benchmark etc, are performed directly and
+  not via the LTSP server. These features will then only work if the "teacher
+  PC" is in the same IP subnet as the "student PCs".
 
-| Question | Remotely | Locally |
-|--|--|--|
-| Where does the Epoptes GUI run? | In the LTSP server |  In an "epoptes PC" per lab |
-| Which epoptes-clients are seen? | All | Only the ones in the current lab |
-| Is screen broadcasting fast? | No, it goes via the server |  Yes, it uses direct connections |
-| Is it secure? | Yes | Somewhat |
-
-So "locally" is better in all cases, except for security, as then the Epoptes private key gets exposed to the local network, allowing man-in-the-middle attacks but not network sniffing.
+For older Epoptes versions or for some specific use cases, there are two other
+ways to run `epoptes` in an LTSP fat client, described below.
 
 ## Remotely
 
-Remotely means to connect to the LTSP server and launch the Epoptes GUI there, similarly to `ltsp-remoteapps epoptes` in the older LTSP5. Since the new LTSP doesn't support remote apps, the following steps are needed. First, put the following in ltsp.conf, run `ltsp initrd`, and reboot the clients:
+It's possible to launch the Epoptes GUI remotely on the LTSP server using the
+`ltsp remoteapps epoptes` LTSP command. To do that, put the following in
+ltsp.conf, run `ltsp initrd`, and reboot the clients:
 
 ```shell
 [clients]
-POST_INIT_EPOPTES="sed 's|^Exec=/usr/bin/epoptes|Exec=ssh -X server dbus-launch epoptes|' -i /usr/share/applications/epoptes.desktop"
+POST_INIT_EPOPTES="sed 's|^Exec=/usr/bin/epoptes|Exec=ltsp remoteapps epoptes|' -i /usr/share/applications/epoptes.desktop"
 ```
 
-Then, tell all the users in the epoptes group to login to an LTSP client, and to run the following commands once:
-
-```shell
-# Generate an SSH key if it doesn't already exist:
-test -f ~/.ssh/id_rsa || ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ''
-# Enable "passwordless SSH" by trusting the key:
-install -m 0600 ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
-# Connect to the LTSP server once, in order to trust the server as well:
-ssh -X server x-terminal-emulator
-```
-
-After that, they should be able to run Epoptes as usual, from the system menu.
+After that, they should be able to run Epoptes as usual, from the system menu,
+although all VNC traffic will go through the SSH tunnel and it will be quite
+slow.
 
 ## Locally
 
